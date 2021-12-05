@@ -62,14 +62,14 @@ class WasmWriter {
         f32[0] = num;
         if (!this.hasSpace(4))
             this.expand();
-        this.buffer.set(u8, this.size);
+        this.buffer.set(u8.subarray(0, 4), this.size);
         this.size += 4;
     }
     writeFloat64(num) {
         f64[0] = num;
         if (!this.hasSpace(8))
             this.expand();
-        this.buffer.set(u8, this.size - 8);
+        this.buffer.set(u8, this.size);
         this.size += 8;
     }
     writeName(text) {
@@ -405,7 +405,11 @@ class WasmWriter {
             else
                 localCombine[localCombine.length - 1].push(local);
         }
-        functionWriter.writeVector(localCombine, (localsRaw) => functionWriter.writeVector(localsRaw, functionWriter.writeSignedByte));
+        functionWriter.writeVector(localCombine, (localsRaw) => {
+            functionWriter.writeUint32(localsRaw.length);
+            if (localsRaw.length)
+                functionWriter.writeSignedByte(localsRaw[0]);
+        });
         functionWriter.writeInstructionExpression(functionCode.body);
         this.writeByteVector(functionWriter.write());
     }

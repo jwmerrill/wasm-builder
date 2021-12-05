@@ -1,6 +1,6 @@
 {
   "name": "@wasmkit/wasm-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Builds and encodes wasm modules",
   "main": "dist/commonjs/builder.js",
   "types": "dist/commonjs/builder.d.ts",
