@@ -1,0 +1,30 @@
+{
+  "name": "@wasmkit/wasm-builder",
+  "version": "1.0.0",
+  "description": "Builds and encodes wasm modules",
+  "main": "dist/commonjs/builder.js",
+  "types": "dist/commonjs/builder.d.ts",
+  "scripts": {
+    "build": "tsc --outDir dist/commonjs",
+    "examples": "node ./examples/simple"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wasmkit/wasm-builder.git"
+  },
+  "keywords": [
+    "wasm"
+  ],
+  "author": "wasmkit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wasmkit/wasm-builder/issues"
+  },
+  "homepage": "https://github.com/wasmkit/wasm-builder#readme",
+  "devDependencies": {
+    "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "@wasmkit/wasm-parser": "^1.0.9"
+  }
+}
