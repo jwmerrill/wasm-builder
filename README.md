@@ -1,3 +1,6 @@
+# UNSTABLE VERSION. EXPECT CODE-BREAKING CHANGES IN A FEW DAYS
+---
+
 # wasm-builder
 
 Builds and encodes wasm modules

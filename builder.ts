@@ -496,7 +496,7 @@ export class WasmBuilder extends WasmWriter {
         super();
     }
 
-    public buildHeader() {
+    private buildHeader() {
         this.writeByte(0x00);
         this.writeByte(0x61);
         this.writeByte(0x73);
@@ -507,7 +507,7 @@ export class WasmBuilder extends WasmWriter {
         this.writeByte(0x00);
     }
 
-    public buildSection<EntryType>(id: SectionId, entryWriterFunc: (entry: EntryType) => void, entries: EntryType[]) {
+    private buildSection<EntryType>(id: SectionId, entryWriterFunc: (entry: EntryType) => void, entries: EntryType[]) {
         if (entries.length === 0) return;
         this.writeByte(id);
         const sectionWriter = new WasmWriter();

@@ -1,4 +1,4 @@
-import { DataSegment, ElementSegment, ExportEntry, FunctionCode, FunctionDescription, FunctionType, GlobalEntry, GlobalType, ImportEntry, Instruction, InstructionExpression, MemoryType, ResizableLimits, SectionId, TableType, WasmModule } from "@wasmkit/wasm-parser";
+import { DataSegment, ElementSegment, ExportEntry, FunctionCode, FunctionDescription, FunctionType, GlobalEntry, GlobalType, ImportEntry, Instruction, InstructionExpression, MemoryType, ResizableLimits, TableType, WasmModule } from "@wasmkit/wasm-parser";
 export declare class WasmWriter {
     private buffer;
     size: number;
@@ -36,7 +36,7 @@ export declare class WasmWriter {
 }
 export declare class WasmBuilder extends WasmWriter {
     private constructor();
-    buildHeader(): void;
-    buildSection<EntryType>(id: SectionId, entryWriterFunc: (entry: EntryType) => void, entries: EntryType[]): void;
+    private buildHeader;
+    private buildSection;
     static buildModule(wasmModule: WasmModule): Uint8Array;
 }
